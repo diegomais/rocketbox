@@ -2,8 +2,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const socketIO = require('socket.io');
+const cors = require('cors');
 
 const app = express();
+
+app.use(cors());
+
 const server = require('http').Server(app);
 const io = socketIO(server);
 
