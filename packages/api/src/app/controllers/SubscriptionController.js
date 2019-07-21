@@ -1,4 +1,5 @@
 import { Op } from 'sequelize';
+import { format } from 'date-fns';
 
 import Mail from '../../lib/Mail';
 
@@ -27,7 +28,9 @@ class SubscriptionController {
       const { id } = req.params;
 
       // Get meetup from db
-      const meetup = await Meetup.findByPk(id);
+      const meetup = await Meetup.findByPk(id, {
+        include: [{ model: User, attributes: ['name', 'email'] }],
+      });
 
       // Check authenticated user differ from meetup host
       if (meetup.user_id === req.userId) {
@@ -77,9 +80,18 @@ class SubscriptionController {
       });
 
       await Mail.sendMail({
-        to: `${user.name} <${user.email}>`,
+        to: `${meetup.User.name} <${meetup.User.email}>`,
         subject: 'New subscription for meetup',
-        text: 'You have a new subscription.',
+        template: 'subscription',
+        context: {
+          host: meetup.User.name,
+          member: user.name,
+          email: user.email,
+          title: meetup.title,
+          description: meetup.description,
+          location: meetup.description,
+          date: format(meetup.date, "dd.MM.yy' at 'HH:mm"),
+        },
       });
 
       return res.json(subscription);
