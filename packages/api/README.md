@@ -40,7 +40,7 @@ The user can not subscribe for the same meetup twice.
 
 The user can not join two meetups that happen at the same time.
 
-Whenever a user signs up for the meetup, send an email to the organizer containing the data related to the registered user.
+Whenever a user subscribe for a meetup, send an email to host containing the data related to registered user.
 
 ## List of meetups
 

@@ -1,7 +1,10 @@
 import { Op } from 'sequelize';
 
+import Mail from '../../lib/Mail';
+
 import Subscription from '../models/Subscription';
 import Meetup from '../models/Meetup';
+import User from '../models/User';
 
 class SubscriptionController {
   async index(req, res) {
@@ -61,9 +64,22 @@ class SubscriptionController {
         });
       }
 
+      // Subscribe for meetup
       const subscription = await Subscription.create({
         meetup_id: id,
         user_id: req.userId,
+      });
+
+      // Send email to host with user data
+      const user = await User.findOne({
+        where: { id: req.userId },
+        attributes: ['id', 'name', 'email'],
+      });
+
+      await Mail.sendMail({
+        to: `${user.name} <${user.email}>`,
+        subject: 'New subscription for meetup',
+        text: 'You have a new subscription.',
       });
 
       return res.json(subscription);
