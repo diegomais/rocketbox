@@ -28,7 +28,7 @@ The user should also be able to edit all meetup data that has not yet happened a
 
 Create a route to list meetups that are organized by the logged-in user.
 
-The user should be able to cancel meetups organized by him that have not yet happened. The delete must delete the database meetup.
+The user should be able to cancel meetups organized by him that have not yet happened. The delete must remove the meetup from database.
 
 ## Meetups Subscription
 
