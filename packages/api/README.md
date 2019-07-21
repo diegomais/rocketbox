@@ -58,7 +58,7 @@ In that list also return the organizer data.
 
 Create a route to list the meetups the logged-in user is enrolled in.
 
-List only meetups that have not yet passed and order closer meetups as the first on the list.
+List only meetups that have not yet happened and order closer meetups as the first on the list.
 
 ## Submit
 

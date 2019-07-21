@@ -1,7 +1,24 @@
+import { Op } from 'sequelize';
+
 import Subscription from '../models/Subscription';
 import Meetup from '../models/Meetup';
 
 class SubscriptionController {
+  async index(req, res) {
+    const { page = 1 } = req.query;
+    const itemsPerPage = 10;
+
+    const subscriptions = await Subscription.findAll({
+      where: { user_id: req.userId },
+      include: [{ model: Meetup, where: { date: { [Op.gt]: new Date() } } }],
+      order: [[Meetup, 'date']],
+      limit: itemsPerPage,
+      offset: (page - 1) * itemsPerPage,
+    });
+
+    return res.json(subscriptions);
+  }
+
   async store(req, res) {
     try {
       const { id } = req.params;
