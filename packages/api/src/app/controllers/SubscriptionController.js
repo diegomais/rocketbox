@@ -1,7 +1,7 @@
 import { Op } from 'sequelize';
-import { format } from 'date-fns';
 
-import Mail from '../../lib/Mail';
+import Queue from '../../lib/Queue';
+import SubscriptionMail from '../jobs/SubscriptionMail';
 
 import Subscription from '../models/Subscription';
 import Meetup from '../models/Meetup';
@@ -73,26 +73,13 @@ class SubscriptionController {
         user_id: req.userId,
       });
 
-      // Send email to host with user data
+      // Add job to email host with user data
       const user = await User.findOne({
         where: { id: req.userId },
         attributes: ['id', 'name', 'email'],
       });
 
-      await Mail.sendMail({
-        to: `${meetup.User.name} <${meetup.User.email}>`,
-        subject: 'New subscription for meetup',
-        template: 'subscription',
-        context: {
-          host: meetup.User.name,
-          member: user.name,
-          email: user.email,
-          title: meetup.title,
-          description: meetup.description,
-          location: meetup.description,
-          date: format(meetup.date, "dd.MM.yy' at 'HH:mm"),
-        },
-      });
+      await Queue.add(SubscriptionMail.key, { meetup, user });
 
       return res.json(subscription);
     } catch (error) {
