@@ -24,11 +24,11 @@ The user can register meetups on the platform with meetup title, description, lo
 
 It should not be possible to register meetups with dates that have passed.
 
-The user should also be able to edit all meetup data that has not yet happened and that he is an organizer.
+The user should also be able to edit all meetup data from meetups that has not yet happened and that is hosted by the user.
 
 Create a route to list meetups that are organized by the logged-in user.
 
-The user should be able to cancel meetups organized by him that have not yet happened. The delete must delete the database meetup.
+The user should be able to cancel meetups organized by him that have not yet happened. The delete must remove the meetup from database.
 
 ## Meetups Subscription
 
