@@ -40,7 +40,7 @@ The user can not subscribe for the same meetup twice.
 
 The user can not join two meetups that happen at the same time.
 
-Whenever a user signs up for the meetup, send an email to the organizer containing the data related to the registered user.
+Whenever a user subscribe for a meetup, send an email to host containing the data related to registered user.
 
 ## List of meetups
 
@@ -58,7 +58,7 @@ In that list also return the organizer data.
 
 Create a route to list the meetups the logged-in user is enrolled in.
 
-List only meetups that have not yet passed and order closer meetups as the first on the list.
+List only meetups that have not yet happened and order closer meetups as the first on the list.
 
 ## Submit
 
