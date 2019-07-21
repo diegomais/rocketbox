@@ -29,4 +29,5 @@ class MeetupController {
     return res.json(meetup);
   }
 }
+
 export default new MeetupController();
