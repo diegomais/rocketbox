@@ -1,68 +1,89 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Challenge 09. Front-end of Meetapp
 
-## Available Scripts
+In this challenge we will build the front-end with ReactJS of Meetapp that will use the API developed during the challenges of the second and third Node.js module.
 
-In the project directory, you can run:
+Create an application from scratch using create-react-app and configure linting tools, Reactotron, Redux and Redux Saga.
 
-### `npm start`
+This application will be used by meetup organizers and will not have subscribe functionality.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The project layout is in the assets-challenge folder of this repository.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Pages
 
-### `npm test`
+### Sign in
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+User must be able to authenticate using email and password.
 
-### `npm run build`
+### Sign up
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+User must be able to sign up with name, email and password.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### Dashboard
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+User should be able to list the meetups they organize and click to see details of a meetup.
 
-### `npm run eject`
+From this page the user can navigate to meetup creation page.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Details
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+User must be able to view details of a previously registered meetup.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+In this page the user can edit the data of a meetup or even cancel a meetup.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Create or edit
 
-## Learn More
+User must be able to create or edit information about meetups he organizes.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Display the meetup banner image preview when the user selects an image.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Use validation in the fields.
 
-### Code Splitting
+### Profile
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+User must be able to edit your personal data.
 
-### Analyzing the Bundle Size
+Use validation in the fields.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## Submit 
 
-### Making a Progressive Web App
+This challenge **does not need to be submited** and will not receive a correction, but we can see the suggested solution of the challenge code here: https://github.com/Rocketseat/bootcamp-gostack-desafio-09
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+> “Change you and everything else will change naturally”!
 
-### Advanced Configuration
+## Getting Started
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-### Deployment
+### Prerequisites
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+The project can be built with npm or yarn, so choose one of the approach bellow in case you don't have any installed on your system.
 
-### `npm run build` fails to minify
+* **Npm** is distributed with Node.js which means that when you download Node.js, you automatically get npm installed on your computer. [Download Node.js](https://nodejs.org/en/download/)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+* **Yarn** is a package manager built by Facebook Team and seems to be faster than npm in general.  [Download Yarn](https://yarnpkg.com/en/docs/install)
+
+### Installing
+
+To download the project follow the instructions bellow:
+
+Download, install dependencies and start the API server
+
+```
+1. git clone https://github.com/diegomais/rocketseat-bootcamp-gostack-challenge-03-continuing-backend-meetapp.git
+2. cd rocketseat-bootcamp-gostack-challenge-03-continuing-backend-meetapp
+3. yarn install
+4. yarn run dev
+```
+
+Then download, install dependencies and run the project:
+
+```
+5. git clone https://github.com/diegomais/rocketseat-bootcamp-gostack-challenge-09-frontend-meetapp.git
+6. cd rocketseat-bootcamp-gostack-challenge-09-frontend-meetapp
+7. yarn install
+8. yarn start
+```
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
