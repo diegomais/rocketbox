@@ -15,6 +15,10 @@ export default (state = initialState, { type, payload }) => {
         draft.profile = null;
         break;
       }
+      case '@user/UPDATE_PROFILE_SUCCESS': {
+        draft.profile = payload.profile;
+        break;
+      }
       default:
     }
   });
