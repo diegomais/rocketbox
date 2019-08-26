@@ -4,13 +4,17 @@ import { format, parseISO } from 'date-fns';
 
 import api from '~/services/api';
 
+import Spinner from '~/components/Spinner';
+
 import { Container, Meetup } from './styles';
 
 export default function Dashboard() {
+  const [loading, setLoading] = useState(false);
   const [meetups, setMeetups] = useState([]);
 
   useEffect(() => {
     async function loadMeetups() {
+      setLoading(true);
       const response = await api.get('hosts');
 
       const data = response.data.map(meetup => {
@@ -24,12 +28,13 @@ export default function Dashboard() {
       });
 
       setMeetups(data);
+      setLoading(false);
     }
 
     loadMeetups();
   }, []);
 
-  return (
+  return !loading ? (
     <Container>
       <header>
         <h1>My meetups</h1>
@@ -46,5 +51,7 @@ export default function Dashboard() {
         ))}
       </ul>
     </Container>
+  ) : (
+    <Spinner />
   );
 }
