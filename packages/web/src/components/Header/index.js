@@ -6,6 +6,8 @@ import { signOut } from '~/store/modules/auth/actions';
 
 import logo from '~/assets/logo.svg';
 
+import Button from '~/components/Button';
+
 import { Container, Content, Profile } from './styles';
 
 export default function Header() {
@@ -31,9 +33,9 @@ export default function Header() {
               <strong>{profile.name}</strong>
               <Link to="/profile">My profile</Link>
             </div>
-            <button type="button" onClick={handleSignOut}>
+            <Button type="button" onClick={handleSignOut}>
               Sign out
-            </button>
+            </Button>
           </Profile>
         </aside>
       </Content>

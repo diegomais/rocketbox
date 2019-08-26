@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { darken } from 'polished';
 
 export const Container = styled.div`
   background: #000;
@@ -42,22 +41,6 @@ export const Profile = styled.div`
       &:hover {
         text-decoration: underline;
       }
-    }
-  }
-
-  button {
-    width: 71px;
-    height: 42px;
-    border: 0;
-    border-radius: 4px;
-    background: #f94d6a;
-    color: #fff;
-    font-weight: bold;
-    font-size: 16px;
-    transition: background 0.2s;
-
-    &:hover {
-      background: ${darken(0.05, '#f94d6a')};
     }
   }
 `;
