@@ -2,9 +2,11 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
+import { MdAddCircleOutline } from 'react-icons/md';
 
 import { updateProfileRequest } from '~/store/modules/user/actions';
 
+import Button from '~/components/Button';
 import { Container } from './styles';
 
 const schema = Yup.object().shape({
@@ -54,7 +56,10 @@ export default function Profile() {
           type="password"
           placeholder="Confirm new password"
         />
-        <button type="submit">Update profile</button>
+        <Button type="submit">
+          <MdAddCircleOutline size={20} />
+          Update profile
+        </Button>
       </Form>
     </Container>
   );

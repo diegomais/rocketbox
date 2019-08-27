@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { darken } from 'polished';
 
 export const Container = styled.div`
   max-width: 940px;
@@ -40,19 +39,7 @@ export const Container = styled.div`
 
     button {
       align-self: flex-end;
-      width: 162px;
-      height: 42px;
       margin-top: 20px;
-      border: 0;
-      border-radius: 4px;
-      background: #f94d6a;
-      color: #fff;
-      font-weight: bold;
-      font-size: 16px;
-      transition: background 0.2s;
-
-      &:hover {
-        background: ${darken(0.03, '#f94d6a')};
-      }
     }
+  }
 `;
