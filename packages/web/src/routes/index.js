@@ -21,8 +21,8 @@ export default function services() {
       <Route path="/profile" component={Profile} isPrivate />
       <Route path="/dashboard" component={Dashboard} isPrivate />
       <Route path="/create" component={CreateMeetup} isPrivate />
-      <Route path="/meetup" component={Meetup} isPrivate />
-      <Route path="/edit" component={EditMeetup} isPrivate />
+      <Route path="/meetup/:id" component={Meetup} isPrivate />
+      <Route path="/edit/:id" component={EditMeetup} isPrivate />
     </Switch>
   );
 }
