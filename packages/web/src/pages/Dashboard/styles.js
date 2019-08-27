@@ -1,39 +1,20 @@
 import styled from 'styled-components';
-import { darken } from 'polished';
 
-export const Container = styled.div`
+export const Container = styled.article`
   max-width: 940px;
   margin: 0 auto;
+`;
 
-  header {
-    margin: 52px 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+export const Header = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 50px 0;
 
-    h1 {
-      font-size: 32px;
-      color: #fff;
-    }
-
-    a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 172px;
-      height: 42px;
-      border: 0;
-      border-radius: 4px;
-      background: #f94d6a;
-      color: #fff;
-      font-weight: bold;
-      font-size: 16px;
-      transition: background 0.2s;
-
-      &:hover {
-        background: ${darken(0.05, '#f94d6a')};
-      }
-    }
+  h1 {
+    font-size: 32px;
+    color: #fff;
   }
 `;
 
@@ -57,9 +38,17 @@ export const Meetup = styled.li`
       font-size: 18px;
     }
 
-    span {
-      color: #999;
-      font-size: 16px;
+    div {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+
+      span {
+        margin-right: 30px;
+        color: #fff;
+        opacity: 0.6;
+        font-size: 16px;
+      }
     }
   }
 `;
