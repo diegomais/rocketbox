@@ -44,7 +44,7 @@ export const Footer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: row;
-  margin-top: 30px;
+  padding: 30px 0;
   font-size: 16px;
   line-height: 18px;
   color: #fff;

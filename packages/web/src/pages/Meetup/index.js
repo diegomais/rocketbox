@@ -29,7 +29,7 @@ function Meetup({ match }) {
           ...response.data,
           formattedDate: format(
             parseISO(response.data.date),
-            'EEE, MMM	d, h:mm a'
+            'EEE, MMM d, h:mm a'
           ),
         });
 
