@@ -30,7 +30,11 @@ export const Header = styled.div`
 `;
 
 export const Banner = styled.img`
-  width: 100%;
+  height: 300px;
+  width: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 export const Text = styled.div`
@@ -38,6 +42,7 @@ export const Text = styled.div`
   font-size: 18px;
   line-height: 32px;
   color: #fff;
+  white-space: pre-wrap; /* Whitespace is preserved by the browser. Text will wrap when necessary, and on line breaks. */
 `;
 
 export const Footer = styled.div`
