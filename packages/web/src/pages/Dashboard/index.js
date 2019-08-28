@@ -26,7 +26,7 @@ export default function Dashboard() {
         const data = response.data.map(meetup => {
           return {
             ...meetup,
-            formattedDate: format(parseISO(meetup.date), 'EEE, MMM	d, h:mm a'),
+            formattedDate: format(parseISO(meetup.date), 'EEE, MMM d, h:mm a'),
           };
         });
 
