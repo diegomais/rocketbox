@@ -37,7 +37,7 @@ export default function SignIn({ navigation }) {
         <Form>
           <FormInput
             icon="mail-outline"
-            placeholder="Email Address"
+            placeholder="Email address"
             keyboardType="email-address"
             autoCorrect={false}
             autoCapitalize="none"

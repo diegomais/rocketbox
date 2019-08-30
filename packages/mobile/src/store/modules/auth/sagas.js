@@ -30,6 +30,11 @@ export function* signUp({ payload }) {
     const { name, email, password } = payload;
 
     yield call(api.post, 'users', { name, email, password });
+
+    Alert.alert(
+      'Registration successful',
+      'Your account has been successfully registered, please login.'
+    );
   } catch (error) {
     Alert.alert(
       'Signup error',
