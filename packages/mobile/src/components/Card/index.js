@@ -23,7 +23,7 @@ export default function Card({
 }) {
   return (
     <Container>
-      <Banner source={banner} />
+      <Banner source={{ uri: banner && banner.url }} />
       <Info>
         <Title>{title}</Title>
         <Row>
@@ -36,7 +36,7 @@ export default function Card({
         </Row>
         <Row>
           <RowIcon name="person" />
-          <Text>{host}</Text>
+          <Text>Host: {host}</Text>
         </Row>
         <ActionButton onPress={actionFunction}>{actionText}</ActionButton>
       </Info>

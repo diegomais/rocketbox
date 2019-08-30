@@ -6,10 +6,11 @@ import Button from '~/components/Button';
 export const Container = styled.View`
   border-radius: 4px;
   background: #fff;
+  margin-bottom: 20px;
 `;
 
 export const Banner = styled.Image.attrs({
-  resizeMode: 'center',
+  resizeMode: 'cover',
   borderTopLeftRadius: 4,
   borderTopRightRadius: 4,
 })`
