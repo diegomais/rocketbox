@@ -5,19 +5,19 @@ import PropTypes from 'prop-types';
 import Background from '~/components/Background';
 // import { Container } from './styles';
 
-export default function Dashboard() {
+export default function Profile() {
   return <Background />;
 }
 
 function TabBarIcon({ tintColor }) {
-  return <Icon name="format-list-bulleted" size={20} color={tintColor} />;
+  return <Icon name="person" size={20} color={tintColor} />;
 }
 
 TabBarIcon.propTypes = {
   tintColor: PropTypes.string.isRequired,
 };
 
-Dashboard.navigationOptions = {
-  tabBarLabel: 'Meetups',
+Profile.navigationOptions = {
+  tabBarLabel: 'My Profile',
   tabBarIcon: TabBarIcon,
 };
