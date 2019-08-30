@@ -1,6 +1,8 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import { signInRequest } from '~/store/modules/auth/actions';
 import logo from '~/assets/logo.png';
 import Background from '~/components/Background';
 import {
@@ -15,9 +17,18 @@ import {
 } from './styles';
 
 export default function SignIn({ navigation }) {
+  const dispatch = useDispatch();
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const loading = useSelector(state => state.auth.loading);
+
   const passwordRef = useRef();
 
-  function handleSubmit() {}
+  function handleSubmit() {
+    dispatch(signInRequest(email, password));
+  }
 
   return (
     <Background>
@@ -32,6 +43,8 @@ export default function SignIn({ navigation }) {
             autoCapitalize="none"
             returnKeyType="next"
             onSubmitEditing={() => passwordRef.current.focus()}
+            value={email}
+            onChangeText={setEmail}
           />
           <FormInput
             icon="lock-outline"
@@ -40,8 +53,12 @@ export default function SignIn({ navigation }) {
             ref={passwordRef}
             returnKeyType="send"
             onSubmitEditing={handleSubmit}
+            value={password}
+            onChangeText={setPassword}
           />
-          <SubmitButton onPress={handleSubmit}>Log in</SubmitButton>
+          <SubmitButton loading={loading} onPress={handleSubmit}>
+            Log in
+          </SubmitButton>
         </Form>
         <SignLink onPress={() => navigation.navigate('SignUp')}>
           <SignLinkText>
