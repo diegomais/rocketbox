@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { format, parseISO, subDays, addDays } from 'date-fns';
+import { format, subDays, addDays } from 'date-fns';
 import { TouchableWithoutFeedback, FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import PropTypes from 'prop-types';
@@ -19,12 +19,7 @@ export default function Dashboard() {
     async function loadMeetups() {
       const response = await api.get('meetups', { params: { date } });
 
-      const data = response.data.map(meetup => ({
-        ...meetup,
-        formattedDate: format(parseISO(meetup.date), 'EEE, MMM d, h:mm a'),
-      }));
-
-      setMeetups(data);
+      setMeetups(response.data);
     }
 
     loadMeetups();
@@ -60,7 +55,7 @@ export default function Dashboard() {
               <Card
                 banner={item.banner}
                 title={item.title}
-                date={item.formattedDate}
+                date={item.date}
                 location={item.location}
                 host={item.host.name}
                 actionText="Register"

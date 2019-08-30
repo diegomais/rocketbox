@@ -1,4 +1,5 @@
 import React from 'react';
+import { format, parseISO } from 'date-fns';
 import PropTypes from 'prop-types';
 
 import {
@@ -21,6 +22,8 @@ export default function Card({
   actionText,
   actionFunction,
 }) {
+  const formattedDate = format(parseISO(date), 'EEE, MMM d, h:mm a');
+
   return (
     <Container>
       <Banner source={{ uri: banner && banner.url }} />
@@ -28,7 +31,7 @@ export default function Card({
         <Title>{title}</Title>
         <Row>
           <RowIcon name="event" />
-          <Text>{date}</Text>
+          <Text>{formattedDate}</Text>
         </Row>
         <Row>
           <RowIcon name="location-on" />
