@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import { updateProfileRequest } from '~/store/modules/user/actions';
 import Background from '~/components/Background';
+import Header from '~/components/Header';
 import {
   Container,
   Title,
@@ -51,6 +52,7 @@ export default function Profile() {
 
   return (
     <Background>
+      <Header />
       <Container>
         <Title>My profile</Title>
 

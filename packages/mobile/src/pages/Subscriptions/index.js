@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 
 import api from '~/services/api';
 import Background from '~/components/Background';
+import Header from '~/components/Header';
 import Card from '~/components/Card';
 import { Container, Title } from './styles';
 
@@ -41,6 +42,7 @@ function Subscriptions({ isFocused }) {
 
   return (
     <Background>
+      <Header />
       <Container>
         {subscriptions.length ? (
           <FlatList

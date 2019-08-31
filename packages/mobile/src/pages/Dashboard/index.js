@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 
 import api from '~/services/api';
 import Background from '~/components/Background';
+import Header from '~/components/Header';
 import Card from '~/components/Card';
 import { Container, Nav, Title, Text } from './styles';
 
@@ -64,6 +65,7 @@ function Dashboard({ navigation, isFocused }) {
 
   return (
     <Background>
+      <Header />
       <Container>
         <Nav>
           <TouchableWithoutFeedback onPress={handlePrevDay}>
