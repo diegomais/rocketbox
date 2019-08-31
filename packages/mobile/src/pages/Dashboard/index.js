@@ -9,11 +9,17 @@ import Background from '~/components/Background';
 import Card from '~/components/Card';
 import { Container, Nav, Title } from './styles';
 
-export default function Dashboard() {
+export default function Dashboard({ navigation }) {
   const [date, setDate] = useState(new Date());
   const [meetups, setMeetups] = useState([]);
 
   const dateFormatted = useMemo(() => format(date, 'EEE, MMM d'), [date]);
+
+  async function handleRegisterSubscription(id) {
+    await api.post(`subscriptions/${id}`);
+
+    navigation.navigate('Subscriptions');
+  }
 
   useEffect(() => {
     async function loadMeetups() {
@@ -58,8 +64,10 @@ export default function Dashboard() {
                 date={item.date}
                 location={item.location}
                 host={item.host.name}
-                actionText="Register"
-                actionFunction={() => {}}
+                actionText="Register subscription"
+                actionFunction={() => {
+                  handleRegisterSubscription(item.id);
+                }}
               />
             )}
           />
@@ -68,6 +76,12 @@ export default function Dashboard() {
     </Background>
   );
 }
+
+Dashboard.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 function TabBarIcon({ tintColor }) {
   return <Icon name="format-list-bulleted" size={20} color={tintColor} />;
