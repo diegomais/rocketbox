@@ -1,13 +1,13 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { format, subDays, addDays } from 'date-fns';
-import { TouchableWithoutFeedback, FlatList } from 'react-native';
+import { Alert, TouchableWithoutFeedback, FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import PropTypes from 'prop-types';
 
 import api from '~/services/api';
 import Background from '~/components/Background';
 import Card from '~/components/Card';
-import { Container, Nav, Title } from './styles';
+import { Container, Nav, Title, Text } from './styles';
 
 export default function Dashboard({ navigation }) {
   const [date, setDate] = useState(new Date());
@@ -16,9 +16,13 @@ export default function Dashboard({ navigation }) {
   const dateFormatted = useMemo(() => format(date, 'EEE, MMM d'), [date]);
 
   async function handleRegisterSubscription(id) {
-    await api.post(`subscriptions/${id}`);
+    try {
+      await api.post(`subscriptions/${id}`);
 
-    navigation.navigate('Subscriptions');
+      navigation.navigate('Subscriptions');
+    } catch (err) {
+      Alert.alert('Register subscription error', err.response.data.error);
+    }
   }
 
   useEffect(() => {
@@ -52,7 +56,7 @@ export default function Dashboard({ navigation }) {
           </TouchableWithoutFeedback>
         </Nav>
 
-        {meetups.length > 0 && (
+        {meetups.length ? (
           <FlatList
             data={meetups}
             extraData={date}
@@ -71,6 +75,8 @@ export default function Dashboard({ navigation }) {
               />
             )}
           />
+        ) : (
+          <Text>No meetups found.</Text>
         )}
       </Container>
     </Background>

@@ -18,15 +18,19 @@ function Subscriptions({ isFocused }) {
     setSubscriptions(response.data);
   }
 
-  async function handleCancelSubscriptions(id) {
-    await api.delete(`subscriptions/${id}`);
+  async function handleCancelSubscription(id) {
+    try {
+      await api.delete(`subscriptions/${id}`);
 
-    Alert.alert(
-      'Successful cancellation',
-      'Your subscription has been successfully canceled.'
-    );
+      Alert.alert(
+        'Successful cancellation',
+        'Your subscription has been successfully canceled.'
+      );
 
-    fetchSubscriptions();
+      fetchSubscriptions();
+    } catch (err) {
+      Alert.alert('Cancel subscription error', err.response.data.error);
+    }
   }
 
   useEffect(() => {
@@ -51,7 +55,7 @@ function Subscriptions({ isFocused }) {
                 host={item.meetup.host.name}
                 actionText="Cancel subscription"
                 actionFunction={() => {
-                  handleCancelSubscriptions(item.id);
+                  handleCancelSubscription(item.id);
                 }}
               />
             )}
