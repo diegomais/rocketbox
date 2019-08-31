@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Alert, FlatList } from 'react-native';
+import { withNavigationFocus } from 'react-navigation';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import PropTypes from 'prop-types';
 
@@ -8,7 +9,7 @@ import Background from '~/components/Background';
 import Card from '~/components/Card';
 import { Container, Title } from './styles';
 
-export default function Subscriptions() {
+function Subscriptions({ isFocused }) {
   const [subscriptions, setSubscriptions] = useState([]);
 
   async function fetchSubscriptions() {
@@ -29,8 +30,10 @@ export default function Subscriptions() {
   }
 
   useEffect(() => {
-    fetchSubscriptions();
-  }, []);
+    if (isFocused) {
+      fetchSubscriptions();
+    }
+  }, [isFocused]);
 
   return (
     <Background>
@@ -73,3 +76,9 @@ Subscriptions.navigationOptions = {
   tabBarLabel: 'Subscriptions',
   tabBarIcon: TabBarIcon,
 };
+
+Subscriptions.propTypes = {
+  isFocused: PropTypes.bool.isRequired,
+};
+
+export default withNavigationFocus(Subscriptions);
