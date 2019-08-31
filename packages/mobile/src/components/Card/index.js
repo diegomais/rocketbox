@@ -1,5 +1,5 @@
 import React from 'react';
-import { format, parseISO } from 'date-fns';
+import { format, parseISO, isBefore } from 'date-fns';
 import PropTypes from 'prop-types';
 
 import {
@@ -23,6 +23,7 @@ export default function Card({
   actionFunction,
 }) {
   const formattedDate = format(parseISO(date), 'EEE, MMM d, h:mm a');
+  const past = isBefore(parseISO(date), new Date());
 
   return (
     <Container>
@@ -41,7 +42,9 @@ export default function Card({
           <RowIcon name="person" />
           <Text>Host: {host}</Text>
         </Row>
-        <ActionButton onPress={actionFunction}>{actionText}</ActionButton>
+        {!past && (
+          <ActionButton onPress={actionFunction}>{actionText}</ActionButton>
+        )}
       </Info>
     </Container>
   );
