@@ -18,7 +18,7 @@ export const Title = styled.Text`
 export const Separator = styled.View`
   height: 1px;
   background: rgba(255, 255, 255, 0.2);
-  margin: 20px 0 30px;
+  margin: 20px 0 20px;
 `;
 
 export const Form = styled.ScrollView.attrs({
@@ -33,7 +33,7 @@ export const FormInput = styled(Input)`
 `;
 
 export const SubmitButton = styled(Button)`
-  margin-top: 20px;
+  margin-top: 10px;
 `;
 
 export const SignOutButton = styled(Button)`
