@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { format, subDays, addDays } from 'date-fns';
 import { Alert, TouchableWithoutFeedback, FlatList } from 'react-native';
+import { withNavigationFocus } from 'react-navigation';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import PropTypes from 'prop-types';
 
@@ -9,9 +10,11 @@ import Background from '~/components/Background';
 import Card from '~/components/Card';
 import { Container, Nav, Title, Text } from './styles';
 
-export default function Dashboard({ navigation }) {
+function Dashboard({ navigation, isFocused }) {
   const [date, setDate] = useState(new Date());
+  const [page, setPage] = useState(1);
   const [meetups, setMeetups] = useState([]);
+  const [endOfResults, setEndOfResults] = useState(false);
 
   const dateFormatted = useMemo(() => format(date, 'EEE, MMM d'), [date]);
 
@@ -25,23 +28,39 @@ export default function Dashboard({ navigation }) {
     }
   }
 
-  useEffect(() => {
-    async function loadMeetups() {
-      const response = await api.get('meetups', { params: { date } });
+  async function fetchMeetups(day, paginate = 1, prevData = []) {
+    const response = await api.get('meetups', {
+      params: { date: day, page: paginate },
+    });
 
-      setMeetups(response.data);
+    setEndOfResults(response.data.length === 0);
+    setMeetups(paginate > 1 ? [...prevData, ...response.data] : response.data);
+    setPage(paginate + 1);
+  }
+
+  function handleFetchMoreMeetups() {
+    if (!endOfResults) {
+      fetchMeetups(date, page, meetups);
     }
-
-    loadMeetups();
-  }, [date]);
+  }
 
   function handlePrevDay() {
     setDate(subDays(date, 1));
+    setPage(1);
+    setEndOfResults(false);
   }
 
   function handleNextDay() {
     setDate(addDays(date, 1));
+    setPage(1);
+    setEndOfResults(false);
   }
+
+  useEffect(() => {
+    if (isFocused) {
+      fetchMeetups(date);
+    }
+  }, [date, isFocused]);
 
   return (
     <Background>
@@ -60,6 +79,8 @@ export default function Dashboard({ navigation }) {
           <FlatList
             data={meetups}
             extraData={date}
+            onEndReached={handleFetchMoreMeetups}
+            onEndReachedThreshold={0.2}
             keyExtractor={item => String(item.id)}
             renderItem={({ item }) => (
               <Card
@@ -87,6 +108,7 @@ Dashboard.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
+  isFocused: PropTypes.bool.isRequired,
 };
 
 function TabBarIcon({ tintColor }) {
@@ -101,3 +123,5 @@ Dashboard.navigationOptions = {
   tabBarLabel: 'Meetups',
   tabBarIcon: TabBarIcon,
 };
+
+export default withNavigationFocus(Dashboard);
