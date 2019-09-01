@@ -81,25 +81,24 @@ npm install -g react-native-cli
 
 ### Installing
 
-To download the project follow the instructions bellow:
+To download the project follow the instructions bellow.
+
+Download, install dependencies and start the API server:
 
 ```
-1. git clone https://github.com/diegomais/rocketseat-bootcamp-gostack-challenge-10-mobile-meetapp.git
-2. cd rocketseat-bootcamp-gostack-challenge-10-mobile-meetapp
-```
-
-Then install dependencies and run:
-
-```
+1. git clone https://github.com/diegomais/rocketseat-bootcamp-gostack-challenge-03-continuing-backend-meetapp.git
+2. cd rocketseat-bootcamp-gostack-challenge-03-continuing-backend-meetapp
 3. yarn install
-4. react-native run-ios
+4. yarn run dev
 ```
 
-or
+Then download, install dependencies and run the project:
 
 ```
-3. npm install
-4. react-native run-ios
+5. git clone https://github.com/diegomais/rocketseat-bootcamp-gostack-challenge-10-mobile-meetapp.git
+6. cd rocketseat-bootcamp-gostack-challenge-10-mobile-meetapp
+7. yarn install
+8. react-native run-ios
 ```
 
 ## License
