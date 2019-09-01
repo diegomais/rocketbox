@@ -1,18 +1,20 @@
-# Challenge 03. Continuing application
+# Challenge 03. Meetapp Back-end
 
-During this challenge we will improve the Meetapp application that we started in the previous challenge by implementing new features.
+> "Do your best, but always on time"!
 
-The application we will continue development is a developer event aggregator called Meetapp (an acronym for Meetup + App).
+In this challenge was built the back-end with Node.js of Meetapp application.
 
-## Features
+Created an application from scratch using Express and configured linting tools.
+
+The application is a developer event aggregator called Meetapp (an acronym for Meetup + App).
+
+## Application
 
 The application we will start development from now on is a developer event aggregator called Meetapp (an acronym for Meetup + App).
 
-In this first challenge we will create some basic functionalities that we have learned throughout the classes up to here.
+## Features
 
-## Functionalities
-
-Below are the features we should add to our application.
+Below are the features added to application:
 
 ### File upload
 
@@ -30,7 +32,7 @@ Create a route to list meetups that are organized by the logged-in user.
 
 The user should be able to cancel meetups organized by him that have not yet happened. The delete must remove the meetup from database.
 
-## Meetups Subscription
+### Meetups Subscription
 
 The user must be able to subscribe for meetups that he does not organize.
 
@@ -42,7 +44,7 @@ The user can not join two meetups that happen at the same time.
 
 Whenever a user subscribe for a meetup, send an email to host containing the data related to registered user.
 
-## List of meetups
+### List of meetups
 
 Create a route to filter and list meetups by date (not by time), results from that listing should be paginated by 10 items per page. Below is an example call to the meetups listing route:
 
@@ -54,17 +56,11 @@ In this example, we will list page 2 of the meetups that will take place on July
 
 In that list also return the organizer data.
 
-## List of subscriptions
+### List of subscriptions
 
 Create a route to list the meetups the logged-in user is enrolled in.
 
 List only meetups that have not yet happened and order closer meetups as the first on the list.
-
-## Submit
-
-This challenge does not need to be submited and we will not receive a correction, but we can see the result of the challenge code here: https://github.com/Rocketseat/bootcamp-gostack-desafio-03
-
-"Do your best, but always on time"!
 
 ## Getting Started
 
