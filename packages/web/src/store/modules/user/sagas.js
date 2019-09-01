@@ -19,8 +19,15 @@ export function* updateProfile({ payload }) {
     toast.success('Profile updated successfully.');
 
     yield put(updateProfileSuccess(response.data));
-  } catch (error) {
-    toast.error('Error updating profile, check your data.');
+  } catch (err) {
+    const { data } = err.response || false;
+
+    toast.error(
+      data && data.error
+        ? data.error
+        : 'Error updating profile, check your data and try again.'
+    );
+
     yield put(updateProfileFailure());
   }
 }

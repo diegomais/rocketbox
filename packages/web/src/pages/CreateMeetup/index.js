@@ -25,11 +25,11 @@ const schema = Yup.object().shape({
 export default function CreateMeetup() {
   const [loading, setLoading] = useState(false);
 
-  async function handleSubmit(data) {
+  async function handleSubmit(payload) {
     try {
       setLoading(true);
 
-      const response = await api.post('meetups', data);
+      const response = await api.post('meetups', payload);
 
       toast.success('Meetup created successfully!');
 
@@ -38,7 +38,16 @@ export default function CreateMeetup() {
       history.push(`/meetup/${response.data.id}`);
     } catch (err) {
       setLoading(false);
-      toast.error('There was an error creating your meetup. Try again later.');
+
+      const { data } = err.response || false;
+
+      toast.error(
+        data && data.error
+          ? data.error
+          : 'There was an error creating your meetup. Try again later.'
+      );
+
+      history.push('/');
     }
   }
 

@@ -35,7 +35,13 @@ function Meetup({ match }) {
 
         setLoading(false);
       } catch (err) {
-        toast.error('There was an error loading your meetup. Try again later.');
+        setLoading(false);
+
+        const { data } = err.response || false;
+
+        toast.error(data && data.error ? data.error : 'Meetup not found.');
+
+        history.push('/');
       }
     }
 
@@ -54,40 +60,48 @@ function Meetup({ match }) {
 
       history.push('/dashboard');
     } catch (err) {
-      toast.error('There was an error canceling yor meetup. Try again later.');
+      const { data } = err.response || false;
+
+      toast.error(
+        data && data.error
+          ? data.error
+          : 'There was an error canceling your meetup. Try again later.'
+      );
     }
   }
 
   return !loading ? (
-    <Container>
-      <Header>
-        <h1>{meetup.title}</h1>
-        {!meetup.past && (
+    meetup && (
+      <Container>
+        <Header>
+          <h1>{meetup.title}</h1>
+          {!meetup.past && (
+            <div>
+              <Button primary type="button" onClick={handleEdit}>
+                <MdEdit size={20} />
+                Edit
+              </Button>
+              <Button type="button" onClick={handleCancel}>
+                <MdDeleteForever size={20} />
+                Cancel
+              </Button>
+            </div>
+          )}
+        </Header>
+        <Banner src={meetup.banner.url} alt="meetup.title" />
+        <Text>{meetup.description}</Text>
+        <Footer>
           <div>
-            <Button primary type="button" onClick={handleEdit}>
-              <MdEdit size={20} />
-              Edit
-            </Button>
-            <Button type="button" onClick={handleCancel}>
-              <MdDeleteForever size={20} />
-              Cancel
-            </Button>
+            <MdEvent size={20} />
+            {meetup.formattedDate}
           </div>
-        )}
-      </Header>
-      <Banner src={meetup.banner.url} alt="meetup.title" />
-      <Text>{meetup.description}</Text>
-      <Footer>
-        <div>
-          <MdEvent size={20} />
-          {meetup.formattedDate}
-        </div>
-        <div>
-          <MdLocationOn size={20} />
-          {meetup.location}
-        </div>
-      </Footer>
-    </Container>
+          <div>
+            <MdLocationOn size={20} />
+            {meetup.location}
+          </div>
+        </Footer>
+      </Container>
+    )
   ) : (
     <Spinner />
   );

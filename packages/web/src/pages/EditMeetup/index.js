@@ -44,7 +44,13 @@ function EditMeetup({ match }) {
 
         setLoading(false);
       } catch (err) {
-        toast.error('There was an error loading your meetup. Try again later.');
+        setLoading(false);
+
+        const { data } = err.response || false;
+
+        toast.error(data && data.error ? data.error : 'Meetup not found.');
+
+        history.push('/');
       }
     }
 

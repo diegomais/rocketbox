@@ -20,7 +20,14 @@ export function* signIn({ payload }) {
 
     history.push('/dashboard');
   } catch (err) {
-    toast.error('Authentication failed, check your credentials and try again.');
+    const { data } = err.response || false;
+
+    toast.error(
+      data && data.error
+        ? data.error
+        : 'Authentication failed, check your credentials and try again.'
+    );
+
     yield put(signFailure());
   }
 }
@@ -32,9 +39,13 @@ export function* signUp({ payload }) {
     yield call(api.post, 'users', { name, email, password });
 
     history.push('/');
-  } catch (error) {
+  } catch (err) {
+    const { data } = err.response || false;
+
     toast.error(
-      'Your account creation request failed, please try again later.'
+      data && data.error
+        ? data.error
+        : 'Your account creation request failed, please try again later.'
     );
     yield put(signFailure());
   }

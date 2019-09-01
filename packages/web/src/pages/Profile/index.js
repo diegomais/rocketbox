@@ -15,7 +15,7 @@ const schema = Yup.object().shape({
   oldPassword: Yup.string()
     .min(6, 'Your password must be at least 6 characters long.')
     .when('password', (password, field) =>
-      password ? field.required() : field
+      password ? field.required('Current password is required.') : field
     ),
   password: Yup.string().min(
     6,
@@ -27,7 +27,7 @@ const schema = Yup.object().shape({
       'Your new password and confirmation password do not match.'
     )
     .when('password', (password, field) =>
-      password ? field.required() : field
+      password ? field.required('Confirm new password is required.') : field
     ),
 });
 
