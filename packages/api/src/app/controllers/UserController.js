@@ -20,38 +20,52 @@ class UserController {
       return res.status(400).json({ error: 'Invalid parameters.' });
     }
 
-    // Check if email already exists in user database
-    const userExists = await User.findOne({ where: { email: req.body.email } });
+    try {
+      // Check if email already exists in user database
+      const userExists = await User.findOne({
+        where: { email: req.body.email },
+      });
 
-    // If email already exists in database return error message
-    if (userExists) {
-      return res
-        .status(400)
-        .json({ error: 'An account already exists with this email address.' });
+      // If email already exists in database return error message
+      if (userExists) {
+        return res.status(400).json({
+          error: 'An account already exists with this email address.',
+        });
+      }
+
+      // Else create user in database
+      const { id, name, email, provider } = await User.create(req.body);
+
+      // Then return user information
+      return res.json({ id, name, email, provider });
+    } catch (err) {
+      return res.status(400).json({
+        error: 'There was an error creating the user, please try again.',
+      });
     }
-
-    // Else create user in database
-    const { id, name, email, provider } = await User.create(req.body);
-
-    // Then return user information
-    return res.json({ id, name, email, provider });
   }
 
   async update(req, res) {
     // Create a object schema validator and object parser using Yup
     const schema = Yup.object().shape({
       name: Yup.string(),
-      email: Yup.string().email(),
+      email: Yup.string().email('Enter a valid email.'),
       oldPassword: Yup.string()
-        .min(6)
+        .min(6, 'Your password must be at least 6 characters long.')
         .when('password', (password, field) =>
-          password ? field.required() : field
+          password ? field.required('Current password is required.') : field
         ),
-      password: Yup.string().min(6),
+      password: Yup.string().min(
+        6,
+        'Your password must be at least 6 characters long.'
+      ),
       confirmPassword: Yup.string()
-        .oneOf([Yup.ref('password')])
+        .oneOf(
+          [Yup.ref('password')],
+          'Your new password and confirmation password do not match.'
+        )
         .when('password', (password, field) =>
-          password ? field.required() : field
+          password ? field.required('Confirm new password is required.') : field
         ),
     });
 
@@ -59,29 +73,36 @@ class UserController {
     if (!(await schema.isValid(req.body))) {
       return res.status(400).json({ error: 'Invalid parameters.' });
     }
-    const user = await User.findByPk(req.userId);
 
-    const { email, oldPassword } = req.body;
+    try {
+      const user = await User.findByPk(req.userId);
 
-    if (email !== user.email) {
-      const userExists = await User.findOne({ where: { email } });
+      const { email, oldPassword } = req.body;
 
-      if (userExists) {
-        return res.status(400).json({
-          error: 'An account already exists with this email address.',
+      if (email !== user.email) {
+        const userExists = await User.findOne({ where: { email } });
+
+        if (userExists) {
+          return res.status(400).json({
+            error: 'An account already exists with this email address.',
+          });
+        }
+      }
+
+      if (oldPassword && !(await user.checkPassword(oldPassword))) {
+        return res.status(401).json({
+          error: 'Invalid password. Please try again.',
         });
       }
-    }
 
-    if (oldPassword && !(await user.checkPassword(oldPassword))) {
-      return res.status(401).json({
-        error: 'Invalid password. Please try again.',
+      const { id, name, provider } = await user.update(req.body);
+
+      return res.json({ id, name, email, provider });
+    } catch (err) {
+      return res.status(400).json({
+        error: 'There was an error updating the profile, please try again.',
       });
     }
-
-    const { id, name, provider } = await user.update(req.body);
-
-    return res.json({ id, name, email, provider });
   }
 }
 
