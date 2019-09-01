@@ -17,22 +17,30 @@ class MeetupController {
 
     const searchDate = parseISO(date);
 
-    const meetups = await Meetup.findAll({
-      where: {
-        canceled_at: null,
-        date: { [Op.between]: [startOfDay(searchDate), endOfDay(searchDate)] },
-      },
-      order: ['date'],
-      attributes: ['id', 'date', 'title', 'description', 'location'],
-      limit: itemsPerPage,
-      offset: (page - 1) * itemsPerPage,
-      include: [
-        { model: File, attributes: ['id', 'path', 'url'] },
-        { model: User, attributes: ['id', 'name', 'email'] },
-      ],
-    });
+    try {
+      const meetups = await Meetup.findAll({
+        where: {
+          canceled_at: null,
+          date: {
+            [Op.between]: [startOfDay(searchDate), endOfDay(searchDate)],
+          },
+        },
+        order: ['date'],
+        attributes: ['id', 'date', 'title', 'description', 'location'],
+        limit: itemsPerPage,
+        offset: (page - 1) * itemsPerPage,
+        include: [
+          { model: File, as: 'banner', attributes: ['id', 'path', 'url'] },
+          { model: User, as: 'host', attributes: ['id', 'name', 'email'] },
+        ],
+      });
 
-    return res.json(meetups);
+      return res.json(meetups);
+    } catch (err) {
+      return res.status(404).json({
+        error: 'Meetups not found.',
+      });
+    }
   }
 
   async store(req, res) {
@@ -54,10 +62,15 @@ class MeetupController {
         error: 'Date must not be in the past. Please, check and try again.',
       });
     }
+    try {
+      const meetup = await Meetup.create({ user_id: req.userId, ...req.body });
 
-    const meetup = await Meetup.create({ user_id: req.userId, ...req.body });
-
-    return res.json(meetup);
+      return res.json(meetup);
+    } catch (err) {
+      return res.status(400).json({
+        error: 'There was an error creating the meetup, please try again.',
+      });
+    }
   }
 
   async update(req, res) {
