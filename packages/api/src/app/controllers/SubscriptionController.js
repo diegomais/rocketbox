@@ -6,21 +6,38 @@ import SubscriptionMail from '../jobs/SubscriptionMail';
 import Subscription from '../models/Subscription';
 import Meetup from '../models/Meetup';
 import User from '../models/User';
+import File from '../models/File';
 
 class SubscriptionController {
   async index(req, res) {
     const { page = 1 } = req.query;
     const itemsPerPage = 10;
 
-    const subscriptions = await Subscription.findAll({
-      where: { user_id: req.userId },
-      include: [{ model: Meetup, where: { date: { [Op.gt]: new Date() } } }],
-      order: [[Meetup, 'date']],
-      limit: itemsPerPage,
-      offset: (page - 1) * itemsPerPage,
-    });
+    try {
+      const subscriptions = await Subscription.findAll({
+        where: { user_id: req.userId },
+        include: [
+          {
+            model: Meetup,
+            as: 'meetup',
+            where: { date: { [Op.gt]: new Date() } },
+            include: [
+              { model: File, as: 'banner', attributes: ['id', 'path', 'url'] },
+              { model: User, as: 'host', attributes: ['id', 'name', 'email'] },
+            ],
+          },
+        ],
+        order: [['meetup', 'date']],
+        limit: itemsPerPage,
+        offset: (page - 1) * itemsPerPage,
+      });
 
-    return res.json(subscriptions);
+      return res.json(subscriptions);
+    } catch (err) {
+      return res.status(404).json({
+        error: 'Subscriptions not found.',
+      });
+    }
   }
 
   async store(req, res) {
@@ -29,7 +46,9 @@ class SubscriptionController {
 
       // Get meetup from db
       const meetup = await Meetup.findByPk(id, {
-        include: [{ model: User, attributes: ['name', 'email'] }],
+        include: [
+          { model: User, as: 'host', attributes: ['id', 'name', 'email'] },
+        ],
       });
 
       // Check authenticated user differ from meetup host
@@ -59,7 +78,9 @@ class SubscriptionController {
       // Check user has subscribe before
       const checkUserIsBusy = await Subscription.findOne({
         where: { user_id: req.userId },
-        include: [{ model: Meetup, where: { date: meetup.date } }],
+        include: [
+          { model: Meetup, as: 'meetup', where: { date: meetup.date } },
+        ],
       });
       if (checkUserIsBusy) {
         return res.status(401).json({
@@ -82,9 +103,33 @@ class SubscriptionController {
       await Queue.add(SubscriptionMail.key, { meetup, user });
 
       return res.json(subscription);
-    } catch (error) {
+    } catch (err) {
       return res.status(404).json({
         error: 'Meetup not found.',
+      });
+    }
+  }
+
+  async delete(req, res) {
+    try {
+      // Get subscription from db
+      const subscription = await Subscription.findByPk(req.params.id, {
+        include: [{ model: Meetup, as: 'meetup', attributes: ['id', 'past'] }],
+      });
+
+      // Check authenticated user differ from subscription user
+      if (subscription.user_id !== req.userId) {
+        return res.status(401).json({
+          error: 'You are not allowed to cancel this subscription.',
+        });
+      }
+
+      await subscription.destroy();
+
+      return res.json({ message: 'Subscription canceled.' });
+    } catch (err) {
+      return res.status(404).json({
+        error: 'Subscription not found.',
       });
     }
   }
