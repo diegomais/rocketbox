@@ -1,12 +1,14 @@
-# Challenge 09. Front-end of Meetapp
+# Challenge 09. Meetapp Front-end
 
-In this challenge we will build the front-end with ReactJS of Meetapp that will use the API developed during the challenges of the second and third Node.js module.
+> “Change you and everything else will change naturally”!
 
-Create an application from scratch using create-react-app and configure linting tools, Reactotron, Redux and Redux Saga.
+In this challenge was built the front-end with ReactJS of Meetapp that use the API developed during the challenges of the [second](https://github.com/diegomais/rocketseat-bootcamp-gostack-challenge-02-starting-backend-meetapp ) and [third](https://github.com/diegomais/rocketseat-bootcamp-gostack-challenge-03-continuing-backend-meetapp) module of Node.js.
 
-This application will be used by meetup organizers and will not have subscribe functionality.
+Created an application from scratch using create-react-app and configured linting tools, [Reactotron](https://github.com/infinitered/reactotron), [Redux](https://www.github.com/reduxjs/redux) and [Redux Saga](https://github.com/redux-saga/redux-saga).
 
-The project layout is in the assets-challenge folder of this repository.
+This application is used by meetup organizers and do not have subscribing features.
+
+The project layout is attached to assets-challenge folder in this repository.
 
 ## Pages
 
@@ -43,12 +45,6 @@ Use validation in the fields.
 User must be able to edit your personal data.
 
 Use validation in the fields.
-
-## Submit 
-
-This challenge **does not need to be submited** and will not receive a correction, but we can see the suggested solution of the challenge code here: https://github.com/Rocketseat/bootcamp-gostack-desafio-09
-
-> “Change you and everything else will change naturally”!
 
 ## Getting Started
 
