@@ -2,7 +2,7 @@
 
 > “The time it takes to realize your dreams will pass anyway”!
 
-In this challenge was built the Meetapp React Native mobile app that use the API was developed during the challenges of the [second](https://github.com/diegomais/rocketseat-bootcamp-gostack-challenge-02-starting-backend-meetapp ) and [third](https://github.com/diegomais/rocketseat-bootcamp-gostack-challenge-03-continuing-backend-meetapp) module of Node.js.
+In this challenge was built the mobile app with React Native of Meetapp that use the API developed during the challenges of the [second](https://github.com/diegomais/rocketseat-bootcamp-gostack-challenge-02-starting-backend-meetapp ) and [third](https://github.com/diegomais/rocketseat-bootcamp-gostack-challenge-03-continuing-backend-meetapp) module of Node.js.
 
 Created an application from scratch using React Native CLI and configured the code standards tools, [Reactotron](https://github.com/infinitered/reactotron), [Redux](https://www.github.com/reduxjs/redux) and [Redux Saga](https://github.com/redux-saga/redux-saga).
 
