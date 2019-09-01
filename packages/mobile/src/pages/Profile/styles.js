@@ -18,7 +18,7 @@ export const Title = styled.Text`
 export const Separator = styled.View`
   height: 1px;
   background: rgba(255, 255, 255, 0.2);
-  margin: 20px 0 20px;
+  margin: 30px 0 10px;
 `;
 
 export const Form = styled.ScrollView.attrs({
@@ -29,11 +29,18 @@ export const Form = styled.ScrollView.attrs({
 `;
 
 export const FormInput = styled(Input)`
-  margin-bottom: 10px;
+  margin-top: 10px;
+`;
+
+export const Error = styled.Text`
+  align-self: flex-start;
+  margin: 5px 10px 0;
+  font-weight: bold;
+  color: #fb6f91;
 `;
 
 export const SubmitButton = styled(Button)`
-  margin-top: 10px;
+  margin-top: 20px;
 `;
 
 export const SignOutButton = styled(Button)`

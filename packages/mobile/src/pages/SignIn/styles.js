@@ -21,11 +21,18 @@ export const Image = styled.Image`
 
 export const Form = styled.View`
   align-self: stretch;
-  margin-top: 50px;
+  margin-top: 40px;
 `;
 
 export const FormInput = styled(Input)`
-  margin-bottom: 10px;
+  margin-top: 10px;
+`;
+
+export const Error = styled.Text`
+  align-self: flex-start;
+  margin: 5px 10px 0;
+  font-weight: bold;
+  color: #fb6f91;
 `;
 
 export const SubmitButton = styled(Button)`
