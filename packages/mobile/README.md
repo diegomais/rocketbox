@@ -4,7 +4,7 @@
 
 In this challenge was built the mobile app with React Native of Meetapp that use the API developed during the challenges of the [second](https://github.com/diegomais/rocketseat-bootcamp-gostack-challenge-02-starting-backend-meetapp ) and [third](https://github.com/diegomais/rocketseat-bootcamp-gostack-challenge-03-continuing-backend-meetapp) module of Node.js.
 
-Created an application from scratch using React Native CLI and configured the code standards tools, [Reactotron](https://github.com/infinitered/reactotron), [Redux](https://www.github.com/reduxjs/redux) and [Redux Saga](https://github.com/redux-saga/redux-saga).
+Created an application from scratch using React Native CLI and configured linting tools, [Reactotron](https://github.com/infinitered/reactotron), [Redux](https://www.github.com/reduxjs/redux) and [Redux Saga](https://github.com/redux-saga/redux-saga).
 
 This application is used by meetup subscribers and do not have meetup organization features.
 
