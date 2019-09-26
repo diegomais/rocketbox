@@ -1,4 +1,4 @@
-# Challenge 03. Meetapp Back-end
+# Meetapp Back-end
 
 > "Do your best, but always on time"!
 
@@ -79,8 +79,8 @@ The project can be built with npm or yarn, so choose one of the approach bellow 
 To download the project follow the instructions bellow:
 
 ```
-1. git clone https://github.com/diegomais/rocketseat-bootcamp-gostack-challenge-03-continuing-backend-meetapp.git
-2. cd rocketseat-bootcamp-gostack-challenge-03-continuing-backend-meetapp
+1. git clone https://github.com/diegomais/meetapp-backend.git
+2. cd meetapp-backend
 ```
 
 Then install dependencies and run:
