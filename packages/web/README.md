@@ -1,8 +1,8 @@
-# Challenge 09. Meetapp Front-end
+# Meetapp Front-end
 
 > “Change you and everything else will change naturally”!
 
-In this challenge was built the front-end with ReactJS of Meetapp that use the API developed during the challenges of the [second](https://github.com/diegomais/rocketseat-bootcamp-gostack-challenge-02-starting-backend-meetapp ) and [third](https://github.com/diegomais/rocketseat-bootcamp-gostack-challenge-03-continuing-backend-meetapp) module of Node.js.
+In this challenge was built the front-end with ReactJS of Meetapp that use the API developed in this [repository](https://github.com/diegomais/meetapp-backend).
 
 Created an application from scratch using create-react-app and configured linting tools, [Reactotron](https://github.com/infinitered/reactotron), [Redux](https://www.github.com/reduxjs/redux) and [Redux Saga](https://github.com/redux-saga/redux-saga).
 
@@ -65,8 +65,8 @@ To download the project follow the instructions bellow:
 Download, install dependencies and start the API server
 
 ```
-1. git clone https://github.com/diegomais/rocketseat-bootcamp-gostack-challenge-03-continuing-backend-meetapp.git
-2. cd rocketseat-bootcamp-gostack-challenge-03-continuing-backend-meetapp
+1. git clone https://github.com/diegomais/meetapp-backend.git
+2. cd meetapp-backend
 3. yarn install
 4. yarn run dev
 ```
@@ -74,12 +74,12 @@ Download, install dependencies and start the API server
 Then download, install dependencies and run the project:
 
 ```
-5. git clone https://github.com/diegomais/rocketseat-bootcamp-gostack-challenge-09-frontend-meetapp.git
-6. cd rocketseat-bootcamp-gostack-challenge-09-frontend-meetapp
+5. git clone https://github.com/diegomais/meetapp-frontend.git
+6. cd meetapp-frontend
 7. yarn install
 8. yarn start
 ```
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
