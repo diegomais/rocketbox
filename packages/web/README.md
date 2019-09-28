@@ -74,8 +74,8 @@ Download, install dependencies and start the API server
 Then download, install dependencies and run the project:
 
 ```
-5. git clone https://github.com/diegomais/meetapp-frontend.git
-6. cd meetapp-frontend
+5. git clone https://github.com/diegomais/meetapp-web.git
+6. cd meetapp-web
 7. yarn install
 8. yarn start
 ```
