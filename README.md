@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="RocketBox" src="/logo.svg" width="250px" /><br>
+    <img alt="RocketBox" src="assets/logo.svg" width="250px" /><br>
     <b>Everything you need, all in one place</b> 📦
 </h1>
 
