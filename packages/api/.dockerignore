@@ -1,0 +1,12 @@
+# dependencies
+node_modules
+
+# Docker
+Dockerfile
+
+# misc
+.DS_Store
+
+# uploads
+temp/*
+!temp/.gitkeep
