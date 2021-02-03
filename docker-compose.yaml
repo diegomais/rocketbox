@@ -1,0 +1,40 @@
+version: "3.9"
+
+services:
+  api:
+    build: ./packages/api
+    depends_on:
+      - mongodb
+    environment:
+      API_URL: http://localhost:3333
+      MONGODB_URI: mongodb://mongodb:27017/rocketbox?retryWrites=true
+      PORT: "3333"
+    ports:
+      - 3333:3333
+    restart: on-failure
+    volumes:
+      - ./packages/api/:/app/
+      - /app/node_modules/
+
+  webapp:
+    build: ./packages/web
+    environment:
+      REACT_APP_API_URL: http://localhost:3333
+    ports:
+      - 3000:3000
+    restart: on-failure
+    stdin_open: true
+    volumes:
+      - ./packages/web/:/app/
+      - /app/node_modules/
+
+  mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+    restart: on-failure
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:
