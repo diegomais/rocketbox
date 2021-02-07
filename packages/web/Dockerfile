@@ -12,4 +12,4 @@ ENV REACT_APP_API_URL=http://localhost:3333
 
 EXPOSE 3000
 
-CMD yarn start
+CMD yarn dev
