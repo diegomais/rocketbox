@@ -8,7 +8,7 @@ RUN yarn install
 
 COPY . .
 
-ENV REACT_APP_API_URL=http://localhost:3333
+ENV NEXT_PUBLIC_API_URL=http://localhost:3333
 
 EXPOSE 3000
 
