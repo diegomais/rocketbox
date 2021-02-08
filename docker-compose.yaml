@@ -19,7 +19,7 @@ services:
   webapp:
     build: ./packages/web
     environment:
-      REACT_APP_API_URL: http://localhost:3333
+      NEXT_PUBLIC_API_URL: http://localhost:3333
     ports:
       - 3000:3000
     restart: on-failure

@@ -1,0 +1,40 @@
+.container {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container form {
+  width: 20rem;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.container input {
+  height: 3rem;
+  border: 1px solid #ddd;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  padding: 0 1.25rem;
+  margin-top: 2rem;
+}
+
+.container button {
+  height: 3rem;
+  background: #7159c1;
+  border: 0;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  padding: 0 1.25rem;
+  margin-top: 0.625rem;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.container button:hover {
+  opacity: 0.8;
+}
