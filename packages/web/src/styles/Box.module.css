@@ -1,0 +1,62 @@
+.container {
+  max-width: 40rem;
+  margin: 3rem auto 0;
+}
+
+.container header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container header h1 {
+  font-size: 1.375rem;
+  padding-left: 1rem;
+  margin-left: 1rem;
+  border-left: 1px solid #ddd;
+}
+
+.container .upload {
+  border: 1px dashed #ddd;
+  border-radius: 0.25rem;
+  color: #999;
+  cursor: pointer;
+  margin-top: 3rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.container ul {
+  margin: 2rem 0;
+  list-style: none;
+}
+
+.container ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container ul li + li {
+  padding-top: 1.25rem;
+  margin-top: 1.25rem;
+  border-top: 1px solid #eee;
+}
+
+.container ul li .fileInfo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.container ul li .fileInfo strong {
+  font-weight: normal;
+  font-size: 0.875rem;
+  margin-left: 0.625rem;
+  color: #333;
+}
+
+.container ul li span {
+  color: #999;
+  font-size: 0.75rem;
+}

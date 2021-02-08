@@ -6,8 +6,7 @@
 }
 
 html,
-body,
-#root {
+body {
   height: 100%;
 }
 
@@ -17,4 +16,8 @@ body {
   color: #333;
   -webkit-font-smoothing: antialiased !important;
   -moz-osx-font-smoothing: antialiased !important;
+}
+
+#__next {
+  min-height: 100vh;
 }
