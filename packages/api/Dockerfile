@@ -11,6 +11,7 @@ COPY . .
 ENV API_URL=http://localhost:3333
 ENV MONGODB_URI=mongodb://mongodb:27017/rocketbox
 ENV PORT=3333
+ENV WHITELIST=["http://localhost:3000"]
 
 EXPOSE 3333
 
