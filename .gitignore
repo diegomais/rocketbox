@@ -48,3 +48,6 @@ coverage
 
 packages/api/temp/*
 !packages/api/temp/.gitkeep
+
+packages/cli
+*.code-workspace
