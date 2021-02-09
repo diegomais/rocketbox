@@ -20,6 +20,10 @@
 
 <br>
 
+<p align="center">
+  <img alt="Mobile and web" src="assets/screen-capture.png" width="800px">
+</p>
+
 ## :rocket: Technologies
 
 This project was developed with the following technologies:
