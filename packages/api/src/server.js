@@ -6,10 +6,12 @@ const cors = require('cors');
 
 const app = express();
 
-app.use(cors());
+const whitelist = JSON.parse(process.env.WHITELIST);
 
-const server = require('http').Server(app);
-const io = require('socket.io')(server);
+app.use(cors({ origin: whitelist }));
+
+const server = require('http').createServer(app);
+const io = require('socket.io')(server, { cors: true, origins: whitelist });
 
 io.on('connection', socket => {
   socket.on('connectRoom', box => {
