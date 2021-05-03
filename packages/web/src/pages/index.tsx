@@ -1,17 +1,17 @@
-import Head from "next/head";
-import { useRouter } from "next/router";
-import { useCallback, useState } from "react";
-import api from "../services/api";
-import styles from "../styles/Home.module.css";
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { useCallback, useState } from 'react';
+import api from '../services/api';
+import styles from '../styles/Home.module.css';
 
-export default function Home() {
+const HomePage = () => {
   const router = useRouter();
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState('');
 
   const handleSubmit = useCallback(
     async (e) => {
       e.preventDefault();
-      const { data } = await api.post("boxes", { title });
+      const { data } = await api.post('boxes', { title });
       router.push(`/box/${data._id}`);
     },
     [title]
@@ -34,4 +34,6 @@ export default function Home() {
       </form>
     </div>
   );
-}
+};
+
+export default HomePage;

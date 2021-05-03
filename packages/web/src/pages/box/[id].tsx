@@ -1,16 +1,17 @@
-import { distanceInWords } from "date-fns";
-import Head from "next/head";
-import { useRouter } from "next/router";
-import { useCallback, useEffect, useState } from "react";
-import Dropzone from "react-dropzone";
-import { MdInsertDriveFile } from "react-icons/md";
-import io from "socket.io-client";
-import api from "../../services/api";
-import styles from "../../styles/Box.module.css";
+import { distanceInWords } from 'date-fns';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { useCallback, useEffect, useState } from 'react';
+import Dropzone from 'react-dropzone';
+import { MdInsertDriveFile } from 'react-icons/md';
+import io from 'socket.io-client';
+import api from '../../services/api';
+import styles from '../../styles/Box.module.css';
+import { Box } from '../../types';
 
-export default function Box() {
+const BoxPage = () => {
   const router = useRouter();
-  const [box, setBox] = useState({});
+  const [box, setBox] = useState<Box>({} as Box);
   const { id } = router.query;
 
   useEffect(() => {
@@ -24,12 +25,12 @@ export default function Box() {
   useEffect(() => {
     if (id) {
       const socket = io(
-        process.env.NEXT_PUBLIC_API_URL || "http://localhost:3333"
+        process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3333'
       );
 
-      socket.emit("connectRoom", id);
+      socket.emit('connectRoom', id);
 
-      socket.on("file", (data) => {
+      socket.on('file', (data) => {
         setBox((prevState) => ({
           ...prevState,
           files: [data, ...prevState.files],
@@ -42,7 +43,7 @@ export default function Box() {
     (files) => {
       files.forEach((file) => {
         const data = new FormData();
-        data.append("file", file);
+        data.append('file', file);
         api.post(`boxes/${id}/files`, data);
       });
     },
@@ -88,4 +89,6 @@ export default function Box() {
       </ul>
     </div>
   );
-}
+};
+
+export default BoxPage;
