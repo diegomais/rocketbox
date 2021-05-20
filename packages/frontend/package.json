@@ -18,8 +18,8 @@
     "start": "next start"
   },
   "devDependencies": {
-    "@types/node": "^15.0.1",
-    "@types/react": "^17.0.4",
-    "typescript": "^4.2.4"
+    "@types/node": "15.0.1",
+    "@types/react": "17.0.4",
+    "typescript": "4.2.4"
   }
 }
