@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   backend:
-    build: ./packages/backend
+    build: ./backend
     depends_on:
       - mongodb
     environment:
@@ -12,7 +12,7 @@ services:
     ports:
       - 3333:3333
     volumes:
-      - ./packages/backend/:/app/
+      - ./backend/:/app/
       - /app/node_modules/
 
   frontend:
