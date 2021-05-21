@@ -4,11 +4,11 @@ on:
   push:
     branches: [ main ]
     paths:
-    - 'packages/frontend/**'
+    - 'frontend/**'
   pull_request:
     branches: [ main ]
     paths:
-    - 'packages/frontend/**'
+    - 'frontend/**'
   workflow_dispatch:
 
 jobs:
@@ -19,7 +19,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: packages/frontend
+        working-directory: frontend
 
     strategy:
       matrix:

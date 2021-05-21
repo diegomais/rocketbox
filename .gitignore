@@ -79,5 +79,5 @@ buck-out/
 # Bundle artifact
 *.jsbundle
 
-packages/api/temp/*
-!packages/api/temp/.gitkeep
+backend/temp/*
+!backend/temp/.gitkeep
