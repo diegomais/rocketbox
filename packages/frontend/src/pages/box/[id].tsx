@@ -4,8 +4,8 @@ import { useRouter } from 'next/router';
 import { useCallback, useEffect, useState } from 'react';
 import Dropzone from 'react-dropzone';
 import { MdInsertDriveFile } from 'react-icons/md';
-import io from 'socket.io-client';
 import api from '../../services/api';
+import socket from '../../services/socket';
 import styles from '../../styles/Box.module.css';
 import { Box } from '../../types';
 
@@ -24,9 +24,7 @@ const BoxPage = () => {
 
   useEffect(() => {
     if (id) {
-      const socket = io(
-        process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3333'
-      );
+      socket.connect();
 
       socket.emit('connectRoom', id);
 
@@ -36,6 +34,10 @@ const BoxPage = () => {
           files: [data, ...prevState.files],
         }));
       });
+    }
+
+    return () => {
+      socket.disconnect();
     }
   }, [id]);
 
