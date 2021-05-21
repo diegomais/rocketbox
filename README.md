@@ -75,7 +75,7 @@ Follow the instructions for React Native CLI available in the official [React Na
 
 #### Installing dependencies and running the Mobile App
 
-Run the instructions bellow inside `packages/mobile` directory:
+Run the instructions bellow inside `mobile` directory:
 
 1. `npm install`
 2. `npm start`
