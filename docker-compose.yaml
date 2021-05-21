@@ -16,14 +16,14 @@ services:
       - /app/node_modules/
 
   frontend:
-    build: ./packages/frontend
+    build: ./frontend
     environment:
       NEXT_PUBLIC_API_URL: http://localhost:3333
     ports:
       - 3000:3000
     stdin_open: true
     volumes:
-      - ./packages/frontend/:/app/
+      - ./frontend/:/app/
       - /app/node_modules/
 
   mongodb:
