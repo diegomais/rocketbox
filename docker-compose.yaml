@@ -16,7 +16,10 @@ services:
       - /app/node_modules/
 
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      target: deps
+    command: yarn dev
     environment:
       NEXT_PUBLIC_API_URL: http://localhost:3333
     ports:
