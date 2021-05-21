@@ -4,16 +4,17 @@ const File = new mongoose.Schema(
   {
     title: {
       type: String,
-      required: true
+      required: true,
     },
     path: {
       type: String,
-      required: true
-    }
-  }, {
+      required: true,
+    },
+  },
+  {
     timestamps: true,
     toObject: { virtuals: true },
-    toJSON: { virtuals: true }
+    toJSON: { virtuals: true },
   }
 );
 

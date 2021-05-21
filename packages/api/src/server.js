@@ -12,8 +12,8 @@ const server = require('http').createServer(app);
 const options = { cors: { origin: '*' } };
 const io = require('socket.io')(server, options);
 
-io.on('connection', socket => {
-  socket.on('connectRoom', box => {
+io.on('connection', (socket) => {
+  socket.on('connectRoom', (box) => {
     socket.join(box);
   });
 });
