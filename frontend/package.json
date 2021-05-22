@@ -8,7 +8,7 @@
     "next": "10.2.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-dropzone": "10.2.2",
+    "react-dropzone": "11.3.2",
     "react-icons": "3.11.0",
     "socket.io-client": "4.1.2"
   },
