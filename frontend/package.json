@@ -18,7 +18,7 @@
     "start": "next start"
   },
   "devDependencies": {
-    "@types/node": "16.11.62",
+    "@types/node": "16.11.65",
     "@types/react": "17.0.50",
     "typescript": "4.3.5"
   }
