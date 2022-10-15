@@ -10,7 +10,7 @@
     "react-dom": "17.0.2",
     "react-dropzone": "11.7.1",
     "react-icons": "4.6.0",
-    "socket.io-client": "4.5.2"
+    "socket.io-client": "4.5.3"
   },
   "scripts": {
     "dev": "next dev",
