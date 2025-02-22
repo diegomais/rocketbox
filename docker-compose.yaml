@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   backend:
     build:
@@ -11,7 +9,7 @@ services:
     environment:
       API_URL: http://localhost:3333
       MONGODB_URI: mongodb://mongodb:27017/rocketbox?retryWrites=true
-      PORT: '3333'
+      PORT: "3333"
     ports:
       - 3333:3333
     volumes:
@@ -22,7 +20,7 @@ services:
     build:
       context: ./frontend
       target: deps
-    command: yarn dev
+    command: pnpm dev
     environment:
       NEXT_PUBLIC_API_URL: http://localhost:3333
     ports:
