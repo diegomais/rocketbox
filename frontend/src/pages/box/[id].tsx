@@ -42,7 +42,7 @@ const BoxPage = () => {
   }, [id]);
 
   const handleUpload = useCallback(
-    (files) => {
+    (files: File[]) => {
       files.forEach((file) => {
         const data = new FormData();
         data.append('file', file);

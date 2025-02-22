@@ -9,7 +9,7 @@ const HomePage = () => {
   const [title, setTitle] = useState('');
 
   const handleSubmit = useCallback(
-    async (e) => {
+    async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       const { data } = await api.post('boxes', { title });
       router.push(`/box/${data._id}`);

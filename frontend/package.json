@@ -2,24 +2,29 @@
   "name": "rocketbox",
   "version": "0.2.0",
   "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
   "dependencies": {
     "axios": "0.29.0",
     "date-fns": "1.30.1",
-    "next": "12.3.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "next": "15.1.7",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-dropzone": "11.7.1",
     "react-icons": "4.7.1",
     "socket.io-client": "4.8.1"
   },
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
   "devDependencies": {
+    "@eslint/eslintrc": "^3",
     "@types/node": "18.11.11",
-    "@types/react": "17.0.52",
-    "typescript": "4.3.5"
+    "@types/react": "19.0.10",
+    "@types/react-dom": "^19",
+    "eslint": "9.20.1",
+    "eslint-config-next": "15.1.7",
+    "typescript": "5.7.3"
   }
 }
