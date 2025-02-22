@@ -27,8 +27,8 @@ importers:
         specifier: 11.7.1
         version: 11.7.1(react@19.0.0)
       react-icons:
-        specifier: 4.7.1
-        version: 4.7.1(react@19.0.0)
+        specifier: 4.12.0
+        version: 4.12.0(react@19.0.0)
       socket.io-client:
         specifier: 4.8.1
         version: 4.8.1
@@ -1266,8 +1266,8 @@ packages:
     peerDependencies:
       react: '>= 16.8'
 
-  react-icons@4.7.1:
-    resolution: {integrity: sha512-yHd3oKGMgm7zxo3EA7H2n7vxSoiGmHk5t6Ou4bXsfcgWyhfDKMpyKfhHR6Bjnn63c+YXBLBPUql9H4wPJM6sXw==}
+  react-icons@4.12.0:
+    resolution: {integrity: sha512-IBaDuHiShdZqmfc/TwHu6+d6k2ltNCf3AszxNmjJc1KUfXdEeRJOKyNvLmAHaarhzGmTSVygNdyu8/opXv2gaw==}
     peerDependencies:
       react: '*'
 
@@ -2917,7 +2917,7 @@ snapshots:
       prop-types: 15.8.1
       react: 19.0.0
 
-  react-icons@4.7.1(react@19.0.0):
+  react-icons@4.12.0(react@19.0.0):
     dependencies:
       react: 19.0.0
 
