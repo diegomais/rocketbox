@@ -2,7 +2,10 @@ version: '3.8'
 
 services:
   backend:
-    build: ./backend
+    build:
+      context: ./backend
+      target: deps
+    command: pnpm dev
     depends_on:
       - mongodb
     environment:
