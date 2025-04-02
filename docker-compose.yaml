@@ -8,7 +8,7 @@ services:
       - mongodb
     environment:
       API_URL: http://localhost:3333
-      MONGODB_URI: mongodb://mongodb:27017/rocketbox?retryWrites=true
+      MONGODB_URI: mongodb://mongodb:27017/rocketbox
       PORT: "3333"
     ports:
       - 3333:3333
