@@ -18,11 +18,10 @@ io.on('connection', (socket) => {
   });
 });
 
-mongoose.connect(
-  process.env.MONGODB_URI ||
-    'mongodb://mongodb:27017/rocketbox?retryWrites=true',
-  { useNewUrlParser: true }
-);
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 app.use((req, res, next) => {
   req.io = io;
