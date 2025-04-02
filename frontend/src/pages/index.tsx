@@ -14,7 +14,7 @@ const HomePage = () => {
       const { data } = await api.post('boxes', { title });
       router.push(`/box/${data._id}`);
     },
-    [title]
+    [router, title]
   );
 
   return (
