@@ -1,3 +1,7 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "extends": [
+    "plugin:jsx-a11y/recommended",
+    "next/core-web-vitals",
+    "next/typescript"
+  ]
 }
