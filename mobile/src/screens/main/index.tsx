@@ -1,31 +1,31 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useNavigation } from '@react-navigation/native';
-import React, { useCallback, useEffect, useState } from 'react';
-import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import * as routes from '../../constants/routes';
-import * as storage from '../../constants/storage';
-import api from '../../services/api';
-import s from './styles';
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import { useRouter } from 'expo-router'
+import { useCallback, useEffect, useState } from 'react'
+import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
+
+import { BOX_KEY } from '@/constants/storage'
+import { api } from '@/services/api'
+import s from './styles'
 
 export const MainScreen = () => {
-  const { navigate } = useNavigation();
-  const [title, setTitle] = useState('');
+  const { navigate } = useRouter()
+  const [title, setTitle] = useState('')
 
   useEffect(() => {
-    AsyncStorage.getItem(storage.BOX_KEY).then((result) => {
+    AsyncStorage.getItem(BOX_KEY).then((result) => {
       if (result) {
-        navigate(routes.BOX);
+        navigate('/box')
       }
-    });
-  }, []);
+    })
+  }, [])
 
   const handleCreateBox = useCallback(async () => {
-    const response = await api.post('boxes', { title });
+    const { data } = await api.post('boxes', { title })
 
-    await AsyncStorage.setItem(storage.BOX_KEY, response.data._id);
+    await AsyncStorage.setItem(BOX_KEY, data._id)
 
-    navigate(routes.BOX);
-  }, []);
+    navigate('/box')
+  }, [title])
 
   return (
     <View style={s.container}>
@@ -44,5 +44,5 @@ export const MainScreen = () => {
         <Text style={s.buttonText}>Create New Box</Text>
       </TouchableOpacity>
     </View>
-  );
-};
+  )
+}

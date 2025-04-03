@@ -1,7 +1,5 @@
-import { io } from 'socket.io-client';
-import { getEnvironment } from '../config/environment';
+import { io } from 'socket.io-client'
 
-const { baseURL } = getEnvironment();
-const socket = io(baseURL, { autoConnect: false });
+import { baseURL } from '@/config/settings'
 
-export default socket;
+export const socket = io(baseURL, { autoConnect: false })
