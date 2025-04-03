@@ -1,1 +1,1 @@
-export const BOX_KEY = '@RocketBox:box';
+export const BOX_KEY = '@RocketBox:box'

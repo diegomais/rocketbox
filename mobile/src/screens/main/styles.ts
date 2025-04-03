@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   button: {
@@ -18,7 +18,7 @@ export default StyleSheet.create({
   },
   container: {
     alignItems: 'stretch',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#f5fcff',
     flex: 1,
     justifyContent: 'center',
     paddingHorizontal: 30,
@@ -35,4 +35,4 @@ export default StyleSheet.create({
   logo: {
     alignSelf: 'center',
   },
-});
+})

@@ -1,8 +1,8 @@
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet, Platform } from 'react-native'
 import {
   getBottomSpace,
   getStatusBarHeight,
-} from 'react-native-iphone-x-helper';
+} from 'react-native-iphone-x-helper'
 
 export default StyleSheet.create({
   boxTitle: {
@@ -51,7 +51,7 @@ export default StyleSheet.create({
     marginTop: 30,
   },
   separator: {
-    backgroundColor: '#EEE',
+    backgroundColor: '#eee',
     height: 1,
   },
-});
+})

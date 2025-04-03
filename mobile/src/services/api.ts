@@ -1,8 +1,5 @@
-import axios from 'axios';
-import { getEnvironment } from '../config/environment';
+import axios from 'axios'
 
-const { baseURL } = getEnvironment();
+import { baseURL } from '@/config/settings'
 
-const api = axios.create({ baseURL });
-
-export default api;
+export const api = axios.create({ baseURL })
