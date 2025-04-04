@@ -28,6 +28,7 @@ node_modules
 
 # production
 /**/build
+/**/dist
 
 # testing
 coverage

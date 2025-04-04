@@ -1,6 +1,9 @@
 # dependencies
 node_modules
 
+# production
+dist
+
 # Docker
 Dockerfile
 
