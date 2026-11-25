@@ -3818,8 +3818,8 @@ packages:
   undici-types@6.20.0:
     resolution: {integrity: sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==}
 
-  undici@6.21.2:
-    resolution: {integrity: sha512-uROZWze0R0itiAKVPsYhFov9LxrPMHLMEQFszeI2gCN6bnIIZ8twzBCJcN2LJrBBLfrP0t1FW0g+JmKVl8Vk1g==}
+  undici@6.29.1:
+    resolution: {integrity: sha512-EvRlUt/QqAEvXdQeRMYUfwOQsfzpDztykrG2owGEE/rBOBoYv9uF39ZzsNDh4lTFHhTr2XOZjKkYgueD12ZmGA==}
     engines: {node: '>=18.17'}
 
   unicode-canonical-property-names-ecmascript@2.0.1:
@@ -5399,7 +5399,7 @@ snapshots:
       temp-dir: 2.0.0
       tempy: 0.7.1
       terminal-link: 2.1.1
-      undici: 6.21.2
+      undici: 6.29.1
       unique-string: 2.0.0
       wrap-ansi: 7.0.0
       ws: 8.18.1
@@ -5603,7 +5603,7 @@ snapshots:
       abort-controller: 3.0.0
       debug: 4.4.0(supports-color@8.1.1)
       source-map-support: 0.5.21
-      undici: 6.21.2
+      undici: 6.29.1
     transitivePeerDependencies:
       - supports-color
 
@@ -8608,7 +8608,7 @@ snapshots:
 
   undici-types@6.20.0: {}
 
-  undici@6.21.2: {}
+  undici@6.29.1: {}
 
   unicode-canonical-property-names-ecmascript@2.0.1: {}
 
