@@ -32,7 +32,7 @@ importers:
         version: 4.17.21
       '@types/multer':
         specifier: ^1.4.12
-        version: 1.4.12
+        version: 1.4.13
       '@types/node':
         specifier: ^22.14.0
         version: 22.14.0
@@ -225,8 +225,8 @@ packages:
   '@types/mongodb@3.6.6':
     resolution: {integrity: sha512-ghYevKiSh/TGk2MAwSRZP7T1ilR9Pw8Fa7pT9GGVGZPUsWKdZjZ4G6LG3MqK2iXKdNba994F8W9ikA+qx2Eo3A==}
 
-  '@types/multer@1.4.12':
-    resolution: {integrity: sha512-pQ2hoqvXiJt2FP9WQVLPRO+AmiIm/ZYkavPlIQnx282u4ZrVdztx0pkh3jjpQt0Kz+YI0YhSG264y08UJKoUQg==}
+  '@types/multer@1.4.13':
+    resolution: {integrity: sha512-bhhdtPw7JqCiEfC9Jimx5LqX9BDIPJEh2q/fQ4bqbBPtyEZYr3cvF22NwG0DmPZNYA0CAf2CnqDB4KIGGpJcaw==}
 
   '@types/node@22.14.0':
     resolution: {integrity: sha512-Kmpl+z84ILoG+3T/zQFyAJsU6EPTmOCj8/2+83fSN6djd6I4o7uOuGIH6vq3PrjY5BGitSbFuMN18j3iknubbA==}
@@ -885,7 +885,7 @@ snapshots:
       '@types/bson': 4.0.3
       '@types/node': 22.14.0
 
-  '@types/multer@1.4.12':
+  '@types/multer@1.4.13':
     dependencies:
       '@types/express': 4.17.21
 
